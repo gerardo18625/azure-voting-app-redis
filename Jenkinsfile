@@ -2,13 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Verify Branch') {
+        stage('Hello') {
             steps {
-               script{
-                  env.GIT_BRANCH = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
-               }
-               
-               echo $GIT_BRANCH
+                echo 'Hello World'
+            }
+        }
+        stage('Goodbye') {
+            steps {
+                echo 'Goodbye World'
+            }
+        }
+        stage('HelloFromPowerShell') {
+            steps {
+                powershell 'Write-Output "Hello PowerShell"'
             }
         }
     }
