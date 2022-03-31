@@ -2,19 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Verify Branch') {
             steps {
-                echo 'Hello World'
-            }
-        }
-        stage('Goodbye') {
-            steps {
-                echo 'Goodbye World'
-            }
-        }
-        stage('HelloFromPowerShell') {
-            steps {
-                powershell 'Write-Output "Hello PowerShell"'
+                echo '$GIT_BRANCH'
             }
         }
     }
